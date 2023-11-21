@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-public class StructureController implements ExampleApi {
+public class StructureControllerV2 implements Example2Api {
 
     @Override
-    public ResponseEntity<Void> listVersionsv2() {
-        return ExampleApi.super.listVersionsv2();
+    public ResponseEntity<Void> getVersionDetailsv2() {
+        return Example2Api.super.getVersionDetailsv2();
     }
 }
