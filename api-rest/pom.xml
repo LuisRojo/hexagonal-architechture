@@ -13,5 +13,50 @@
     <artifactId>api-rest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>0.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.6.9</version>
+        </dependency>
+    </dependencies>
 
+    <build>
+    <plugins>
+        <plugin>
+            <groupId>org.openapitools</groupId>
+            <artifactId>openapi-generator-maven-plugin</artifactId>
+            <version>5.3.0</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <configuration>
+                        <inputSpec>
+                            ${project.basedir}/src/main/resources/openapi-rest.yaml
+                        </inputSpec>
+                        <generatorName>spring</generatorName>
+                        <apiPackage>org.hexagonal.openapi.api</apiPackage>
+                        <modelPackage>org.hexagonal.openapi.model</modelPackage>
+                        <configOptions>
+                            <interfaceOnly>true</interfaceOnly>
+                            <useTags>true</useTags>
+                        </configOptions>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+    </build>
 </project>
