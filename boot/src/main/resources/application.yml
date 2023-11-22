@@ -3,7 +3,7 @@ spring:
     mongodb:
       user: test
       password: test
-      uri: mongodb://localhost:49437/test
+      uri: mongodb://localhost:27017/test
   docker:
     compose:
       enabled: true

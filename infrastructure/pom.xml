@@ -8,9 +8,9 @@
         <groupId>org.hexagonal</groupId>
         <artifactId>multimodule-hexagonal</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>infrastructure</artifactId>
-    <version>1.0-SNAPSHOT</version>
 
 </project>
