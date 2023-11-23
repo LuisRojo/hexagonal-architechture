@@ -12,5 +12,12 @@
     </parent>
 
     <artifactId>infrastructure</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.hexagonal</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

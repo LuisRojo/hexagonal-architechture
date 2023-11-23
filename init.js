@@ -2,15 +2,15 @@ db.createCollection('persons');
 
 db.persons.insertMany([
     {
-        id: 1,
+        personId: "1",
         name: 'Luis'
     },
     {
-        id: 2,
+        personId: "2",
         name: 'Alberto'
     },
     {
-        id: 3,
+        personId: "3",
         name: 'David'
     }
 ]);

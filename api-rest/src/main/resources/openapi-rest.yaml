@@ -17,11 +17,11 @@ paths:
 
 components:
   schemas:
-    Person:
+    PersonResponse:
       type: object
       properties:
         id:
-          type: integer
+          type: string
           example: 1
         name:
           type: string
@@ -37,4 +37,4 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Person'
+            $ref: '#/components/schemas/PersonResponse'

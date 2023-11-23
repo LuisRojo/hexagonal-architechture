@@ -14,6 +14,28 @@
     <artifactId>boot</artifactId>
     <packaging>jar</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.hexagonal</groupId>
+            <artifactId>api-rest</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hexagonal</groupId>
+            <artifactId>application</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hexagonal</groupId>
+            <artifactId>domain</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hexagonal</groupId>
+            <artifactId>infrastructure</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

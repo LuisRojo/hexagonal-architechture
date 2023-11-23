@@ -8,3 +8,6 @@ spring:
     compose:
       enabled: true
       file: docker-compose.yml
+server:
+  servlet:
+    context-path: /pruebas
