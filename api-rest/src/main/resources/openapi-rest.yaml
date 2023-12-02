@@ -1,0 +1,93 @@
+openapi: "3.0.0"
+info:
+  title: Simple API overview
+  version: 2.0.0
+tags:
+  - name: Player
+paths:
+  /multimodule-hexagonal/player:
+    get:
+      operationId: playerInfo
+      summary: player info
+      tags:
+        - Player
+      responses:
+        '200':
+          $ref: '#/components/responses/Player200'
+    post:
+      operationId: savePlayer
+      summary: Save player
+      tags:
+        - Player
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+  /multimodule-hexagonal/player/all:
+    get:
+      operationId: allPlayers
+      summary: get all players
+      tags:
+        - Player
+      responses:
+        '200':
+          $ref: '#/components/responses/Players200'
+
+components:
+  schemas:
+    PlayerRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Luis
+        position:
+          type: string
+          example: forward
+      required:
+        - name
+        - position
+      additionalProperties: false
+    PlayerResponse:
+      type: object
+      properties:
+        identification:
+          type: string
+          format: UUID
+          example: 42028cf3-9884-4c52-b597-54e4a41f5716
+        name:
+          type: string
+          example: Luis
+        position:
+          type: string
+          example: forward
+      required:
+        - identification
+        - name
+        - position
+      additionalProperties: false
+    AllPlayersResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/PlayerResponse'
+
+  responses:
+    Players200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AllPlayersResponse'
+
+    Player200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/PlayerResponse'
+    200:
+      description: OK
