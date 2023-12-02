@@ -3,38 +3,70 @@ info:
   title: Simple API overview
   version: 2.0.0
 tags:
-  - name: Person
+  - name: Player
 paths:
-  /multimodule-hexagonal/person:
+  /multimodule-hexagonal/player:
     get:
-      operationId: personInfo
-      summary: List API versions
+      operationId: playerInfo
+      summary: player info
       tags:
-        - Person
+        - Player
       responses:
         '200':
-          $ref: '#/components/responses/Person200'
+          $ref: '#/components/responses/Player200'
+    post:
+      operationId: savePlayer
+      summary: Save player
+      tags:
+        - Player
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlayerRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
 
 components:
   schemas:
-    PersonResponse:
+    PlayerRequest:
       type: object
       properties:
-        id:
+        name:
+          type: string
+          example: Luis
+        position:
+          type: string
+          example: forward
+      required:
+        - name
+        - position
+      additionalProperties: false
+    PlayerResponse:
+      type: object
+      properties:
+        identification:
           type: string
           example: 1
         name:
           type: string
           example: Luis
+        position:
+          type: string
+          example: forward
       required:
-        - id
+        - identification
         - name
+        - position
       additionalProperties: false
 
   responses:
-    Person200:
+    Player200:
       description: OK
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/PersonResponse'
+            $ref: '#/components/schemas/PlayerResponse'
+    200:
+      description: OK

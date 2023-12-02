@@ -4,6 +4,8 @@ spring:
       user: test
       password: test
       uri: mongodb://localhost:27017/test
+      uuid-representation: standard
+      auto-index-creation: true
   docker:
     compose:
       enabled: true
