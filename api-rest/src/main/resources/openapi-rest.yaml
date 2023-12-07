@@ -5,15 +5,18 @@ info:
 tags:
   - name: Player
 paths:
-  /multimodule-hexagonal/player:
+  /multimodule-hexagonal/player/{playerIdPathParam}:
     get:
       operationId: playerInfo
       summary: player info
       tags:
         - Player
+      parameters:
+        - $ref: '#/components/parameters/playerIdPathParam'
       responses:
         '200':
           $ref: '#/components/responses/Player200'
+  /multimodule-hexagonal/player:
     post:
       operationId: savePlayer
       summary: Save player
@@ -70,10 +73,21 @@ components:
         - name
         - position
       additionalProperties: false
+
     AllPlayersResponse:
       type: array
       items:
         $ref: '#/components/schemas/PlayerResponse'
+
+  parameters:
+
+    playerIdPathParam:
+      name: playerIdPathParam
+      in: path
+      description: player id
+      required: true
+      schema:
+        type: string
 
   responses:
     Players200:

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Component
 @AllArgsConstructor
@@ -27,8 +28,8 @@ public class PlayerAdapter implements PlayerPort {
     }
 
     @Override
-    public Player findPlayer() {
-        Optional<PlayerDocument> result = repository.findByName("Luis");
+    public Player findPlayer(UUID playerID) {
+        Optional<PlayerDocument> result = repository.findByIdentification(playerID);
         return result.map(mapper::toDomain).orElseThrow(() -> new PlayerNotFoundException("Player not found"));
     }
 
